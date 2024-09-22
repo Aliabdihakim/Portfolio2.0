@@ -9,7 +9,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import styles from "./Project.module.css"; // Import the CSS module
+import styles from "./project.module.css"; // Import the CSS module
 import {
   Globe,
   GithubLogo,
