@@ -4,8 +4,15 @@ import { PrismaClient } from "@prisma/client";
 // Initialize Prisma Client
 const prisma = new PrismaClient();
 
-// API handler to fetch all projects
 export async function GET() {
-  const projects = await prisma.project.findMany(); // Fetch projects
-  return NextResponse.json(projects); // Return data as JSON
+  try {
+    const projects = await prisma.project.findMany();
+    return NextResponse.json(projects);
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return NextResponse.json(
+      { error: "Error fetching projects" },
+      { status: 500 }
+    );
+  }
 }
