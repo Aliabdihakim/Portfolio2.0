@@ -29,7 +29,7 @@ import CardContainer from "./CardContainer";
 const StacksCard = () => {
   return (
     <CardContainer className="flex flex-col gap-2 overflow-hidden">
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center p-4">
         <LockLaminated size={20} weight="bold" />
         <p className="text-base font-light">Stacks</p>
       </div>

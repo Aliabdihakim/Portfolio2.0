@@ -9,7 +9,7 @@ const Globe = () => {
 
   useEffect(() => {
     let phi = 0; // Horizontal rotation
-    let theta = 0.3; // Vertical rotation (adjusted to show Stockholm immediately)
+    const theta = 0.3; // Vertical rotation (adjusted to show Stockholm immediately)
     let isDragging = false;
     let lastX = 0;
 
@@ -72,7 +72,7 @@ const Globe = () => {
 
   return (
     <CardContainer>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center p-4">
         <MapPin size={20} weight="bold" />
         <p className="text-base font-light">Stockholm</p>
       </div>

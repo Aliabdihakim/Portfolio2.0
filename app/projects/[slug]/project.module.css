@@ -1,0 +1,28 @@
+/* Project.module.css */
+.customBullet {
+  width: 0.75rem; /* Tailwind w-3 */
+  height: 0.75rem; /* Tailwind h-3 */
+  border: 2px solid white; /* Tailwind border-2 border-white */
+  background-color: transparent; /* Tailwind bg-transparent */
+  margin: 0 0.25rem; /* Tailwind mx-1 */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 50%; /* Tailwind rounded-full */
+}
+
+.customBulletActive {
+  background-color: white; /* Tailwind bg-white */
+  color: white;
+}
+
+.customArrow {
+  background: transparent;
+  color: black; /* Black text/icon color */
+  width: 2rem; /* Adjust size as needed */
+  height: 2rem; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

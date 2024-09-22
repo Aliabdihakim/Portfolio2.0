@@ -28,7 +28,7 @@ const Hero = () => {
     }, 2000); // Change word every 2 seconds
 
     return () => clearInterval(interval); // Clean up the interval on component unmount
-  }, []);
+  }, [words.length]);
 
   return (
     <div className="pt-40">
@@ -36,7 +36,7 @@ const Hero = () => {
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl leading-[50px] w-full md:max-w-xl">
-              I'm Ali, a Full Stack Developer creating{" "}
+              I’m Ali, a Full Stack Developer creating{" "}
               <span
                 className={clsx(
                   "bg-clip-text text-transparent inline-block transition-all duration-1000",

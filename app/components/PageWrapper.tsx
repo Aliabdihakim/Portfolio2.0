@@ -7,21 +7,27 @@ type PageWrapperProps = {
   "data-testid"?: string;
 };
 
-const PageWrapper = ({
+function PageWrapper({
   children,
   className,
   "data-testid": testId,
-}: PageWrapperProps) => (
-  <div
-    className={clsx("px-3 py-4 max-w-5xl mx-auto", className)}
-    data-testid={testId}
-  >
-    {children}
-  </div>
-);
+}: PageWrapperProps) {
+  return (
+    <div
+      className={clsx("px-3 py-4 max-w-5xl mx-auto", className)}
+      data-testid={testId}
+    >
+      {children}
+    </div>
+  );
+}
 
-PageWrapper.Header = ({ children }: { children: React.ReactNode }) => (
-  <h1 className="tw-mb-3">{children}</h1>
-);
+PageWrapper.Header = function Header({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <h1 className="tw-mb-3">{children}</h1>;
+};
 
 export { PageWrapper };
