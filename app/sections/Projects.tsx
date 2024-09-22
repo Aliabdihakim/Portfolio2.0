@@ -36,7 +36,9 @@ export const projects = [
 const Projects = () => {
   return (
     <PageWrapper className="my-24">
-      <h1 className="text-4xl mb-12 flex justify-center">Selected projects</h1>
+      <h1 className="text-4xl mb-12 flex justify-center">
+        Selected projects NEW
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => {
           return (
