@@ -36,7 +36,7 @@ const Hero = () => {
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl leading-[50px] w-full md:max-w-xl">
-              I’m Ali, a Full Stack Developer creating{" "}
+              I’m Ali, a Full Stack Developer creating{" "}NEW
               <span
                 className={clsx(
                   "bg-clip-text text-transparent inline-block transition-all duration-1000",
