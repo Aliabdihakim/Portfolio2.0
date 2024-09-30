@@ -21,6 +21,15 @@ const Badge = ({
   <span
     className={clsx(
       `bg-${color}-200 text-gray-800 text-sm font-medium py-1 px-2 rounded-full`,
+      {
+        "bg-gray-200": color === "gray",
+        "bg-blue-200:": color === "blue",
+        "bg-green-200:": color === "green",
+        "bg-purple-200:": color === "purple",
+        "bg-red-200:": color === "red",
+        "bg-yellow-200:": color === "yellow",
+        "bg-orange-200:": color === "orange",
+      },
       className
     )}
   >

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import Image from "next/image";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const words = [
@@ -30,22 +31,34 @@ const Hero = () => {
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [words.length]);
 
+  const variants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -50 },
+  };
+
   return (
     <div className="pt-40">
       <PageWrapper>
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl leading-[50px] w-full md:max-w-xl">
-              I’m Ali, a Full Stack Developer creating{" "}NEW
-              <span
+              I’m Ali, a Full Stack Developer creating{" "}
+              <motion.span
                 className={clsx(
-                  "bg-clip-text text-transparent inline-block transition-all duration-1000",
+                  "bg-clip-text text-transparent inline-block",
                   words[currentWordIndex].gradient
                 )}
                 style={{ width: "144px", display: "inline-block" }} // Adjust width as per longest word
+                key={currentWordIndex}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={variants}
+                transition={{ duration: 0.5 }}
               >
                 {words[currentWordIndex].text}
-              </span>{" "}
+              </motion.span>{" "}
               websites using React
             </h1>
             <p className="text-gray-500 text-base">Stockholm • UTC/GMT +2</p>

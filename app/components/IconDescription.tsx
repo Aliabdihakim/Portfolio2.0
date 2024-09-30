@@ -19,6 +19,7 @@ type IconDescriptionProps = {
   align?: "left" | "right";
   theme?: ThemeType;
   gap?: number;
+  iconGap?: number;
   className?: string;
 };
 const IconDescription: React.FC<IconDescriptionProps> = ({
@@ -30,11 +31,12 @@ const IconDescription: React.FC<IconDescriptionProps> = ({
   descriptionSize,
   descriptionWeight,
   size,
+  iconGap = 3,
   className = "",
   theme = "default",
 }) => {
   return (
-    <div className={clsx("flex items-center gap-3", className)}>
+    <div className={clsx("flex items-center", `gap-${iconGap}`, className)}>
       <div>{icon}</div>
       <Description
         title={title}

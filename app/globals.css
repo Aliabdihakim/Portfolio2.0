@@ -2,23 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Root theme colors */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 /* Body font using GeistSans */
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-geist-sans), sans-serif;
 }
 
@@ -36,4 +21,28 @@ h4,
 h5,
 h6 {
   font-family: var(--font-cal-sans), sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Default light mode colors */
+    --background: #ffffff;
+    --foreground: #000000;
+    --radius: 0.5rem;
+  }
+
+  /* Dark mode colors */
+  .dark {
+    --background: #121212;
+    --foreground: #ffffff;
+  }
+
+  /* Apply theme to body */
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition:
+      background-color 0.3s,
+      color 0.3s; /* Smooth transition */
+  }
 }

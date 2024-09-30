@@ -13,7 +13,9 @@ const CardContainer: React.FC<CardContainerProps> = ({
   return (
     <div
       className={clsx(
-        "border rounded-xl shadow-2xl border-gray-50 p-2",
+        "rounded-xl p-2",
+        "shadow-2xl",
+        "dark:border-[1px] dark:border-neutral-800 dark:shadow-gray-600 dark:shadow-sm",
         className
       )}
     >

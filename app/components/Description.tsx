@@ -24,28 +24,6 @@ type DescriptionProps = {
 };
 
 const alignClass = { left: "", right: "text-right" } as const;
-const themeClass = {
-  default: {
-    body: "text-gray-800",
-    secondary: "text-gray-500",
-  },
-  defaultFlip: {
-    body: "text-gray-500",
-    secondary: "text-gray-800",
-  },
-  disabled: {
-    body: "text-gray-800 opacity-50",
-    secondary: "text-gray-500 opacity-50",
-  },
-  grayBlack: {
-    body: "tetx-gray-500",
-    secondary: "text-black",
-  },
-  whiteGray: {
-    body: "text-white",
-    secondary: "text-neutral-400",
-  },
-} as const;
 
 const fontSizeClass = {
   sm: "text-sm",
@@ -82,7 +60,6 @@ const Description = ({
         fontSizeClass[titleSize || size],
         fontWeightClass[titleWeight],
         alignClass[align],
-        themeClass[theme].body,
         `mb-${gap}`,
         className
       )}
@@ -95,8 +72,7 @@ const Description = ({
           "",
           fontSizeClass[descriptionSize || size],
           fontWeightClass[descriptionWeight],
-          alignClass[align],
-          themeClass[theme].secondary
+          alignClass[align]
         )}
       >
         {description}

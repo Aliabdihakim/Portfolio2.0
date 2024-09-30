@@ -41,12 +41,7 @@ const Timeline = () => {
     },
   ];
 
-  const colors = [
-    "bg-green-500",
-    "bg-pink-500",
-    "bg-yellow-500",
-    "bg-blue-500",
-  ];
+  const colors = ["pink", "purple", "green", "blue"];
 
   return (
     <PageWrapper className="my-24 max-w-2xl">
@@ -57,7 +52,16 @@ const Timeline = () => {
             <CardContainer
               key={exp.id}
               className={clsx(
-                `group bg-white cursor-pointer p-8 relative before:content-[''] before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-r before:opacity-75 before:blur-md hover:before:blur-lg before:${colors[index]}`
+                `group cursor-pointer p-8 relative`,
+                `shadow-lg shadow-${colors[index]}-500`,
+                `shadow-[0_0px_15px_-3px_rgba(0,0,0,0.1)]`,
+                `transition-shadow duration-300 ease-in-out`, // Smooth transition for shadow
+                {
+                  "shadow-pink-500": colors[index] === "pink",
+                  "shadow-purple-500": colors[index] === "purple",
+                  "shadow-green-500": colors[index] === "green",
+                  "shadow-blue-500": colors[index] === "blue",
+                }
               )}
             >
               <div className="flex items-center gap-8">
@@ -66,7 +70,10 @@ const Timeline = () => {
                   src={exp.icon}
                   width={80}
                   height={80}
-                  className={clsx(`borde-2 border-${colors[index]} rounded-lg`)}
+                  className={clsx(
+                    `borde-2 border-${colors[index]} rounded-lg`,
+                    "-translate-y-1" // Moves the image slightly upward
+                  )}
                 />
                 <div className="flex-1">
                   <p className="text-xs font-semibold text-gray-400 pb-3">

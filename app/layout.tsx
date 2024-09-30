@@ -21,8 +21,16 @@ const calSans = localFont({
 
 export const metadata: Metadata = {
   title: "Ali Abdihakim",
-  description: "Ali Abdihakim developer portolio!",
+  description: "Ali Abdihakim developer portfolio!",
 };
+
+// Inline script to immediately set the theme before page hydration
+const setInitialTheme = `
+  (function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.classList.add(savedTheme);
+  })();
+`;
 
 export default function RootLayout({
   children,
@@ -31,6 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${calSans.variable} antialiased`}
       >

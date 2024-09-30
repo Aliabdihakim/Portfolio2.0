@@ -1,0 +1,32 @@
+.gradientBorder {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  background-clip: padding-box;
+}
+
+.gradientBorder::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff007a, #0077ff, #00ff88, #ff8800);
+  background-size: 400% 400%;
+  border-radius: 14px; /* 1px more than container for smooth overlap */
+  animation: gradientRotate 8s linear infinite;
+}
+
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
