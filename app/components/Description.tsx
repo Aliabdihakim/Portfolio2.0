@@ -1,11 +1,5 @@
 import clsx from "clsx";
 
-type ThemeType =
-  | "default"
-  | "defaultFlip"
-  | "disabled"
-  | "grayBlack"
-  | "whiteGray";
 export type FontWeightType = keyof typeof fontWeightClass;
 export type FontSizeType = keyof typeof fontSizeClass;
 
@@ -13,7 +7,6 @@ type DescriptionProps = {
   title: React.ReactNode;
   description?: React.ReactNode;
   align?: "left" | "right";
-  theme?: ThemeType;
   size?: FontSizeType;
   titleSize?: FontSizeType;
   descriptionSize?: FontSizeType;
@@ -44,7 +37,6 @@ const Description = ({
   title,
   description,
   align = "left",
-  theme = "default",
   size = "sm",
   titleSize,
   descriptionSize,
@@ -82,4 +74,4 @@ const Description = ({
 );
 
 export { Description };
-export type { DescriptionProps, ThemeType };
+export type { DescriptionProps };

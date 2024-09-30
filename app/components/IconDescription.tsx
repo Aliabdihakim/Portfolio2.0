@@ -1,11 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import {
-  Description,
-  FontSizeType,
-  FontWeightType,
-  ThemeType,
-} from "./Description"; // Adjust the import path as necessary
+import { Description, FontSizeType, FontWeightType } from "./Description";
 
 type IconDescriptionProps = {
   icon: React.ReactNode;
@@ -17,7 +12,6 @@ type IconDescriptionProps = {
   descriptionWeight?: FontWeightType;
   size?: FontSizeType;
   align?: "left" | "right";
-  theme?: ThemeType;
   gap?: number;
   iconGap?: number;
   className?: string;
@@ -33,7 +27,6 @@ const IconDescription: React.FC<IconDescriptionProps> = ({
   size,
   iconGap = 3,
   className = "",
-  theme = "default",
 }) => {
   return (
     <div className={clsx("flex items-center", `gap-${iconGap}`, className)}>
@@ -46,7 +39,6 @@ const IconDescription: React.FC<IconDescriptionProps> = ({
         descriptionSize={descriptionSize}
         descriptionWeight={descriptionWeight}
         size={size}
-        theme={theme}
       />
     </div>
   );
