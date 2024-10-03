@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-type BadgeColor =
+export type BadgeColor =
   | "gray"
   | "blue"
   | "green"

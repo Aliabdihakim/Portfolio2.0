@@ -9,19 +9,20 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import styles from "./project.module.css"; // Import the CSS module
+import styles from "./project.module.css";
 import {
   Globe,
   GithubLogo,
   HardDrives,
   Airplay,
   Rocket,
+  Wrench,
 } from "@phosphor-icons/react/dist/ssr";
-// import clsx from "clsx";
-import Badge from "@/app/components/Badge";
+import Badge, { BadgeColor } from "@/app/components/Badge";
 import { Description } from "@/app/components/Description";
 import IconDescription from "@/app/components/IconDescription";
 import BlobGradient from "@/app/components/BlobGradient";
+import Link from "next/link";
 
 const page = ({ params }: { params: { slug: string } }) => {
   const project = projects.find(
@@ -32,10 +33,29 @@ const page = ({ params }: { params: { slug: string } }) => {
     return <div>Project not found</div>;
   }
 
-  // const [activeIndex, setActiveIndex] = useState(0);
+  const renderTechStack = (
+    category: string,
+    techStack: string[] | undefined,
+    icon: JSX.Element,
+    color: BadgeColor
+  ) => (
+    <div>
+      <IconDescription
+        title={category}
+        titleSize="base"
+        titleWeight="semibold"
+        icon={icon}
+      />
+      <div className="mt-3 flex flex-col flex-wrap gap-3">
+        {(techStack ?? []).map((tech, index) => (
+          <Badge key={index} text={tech} color={color} />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <div>
+    <div className="relative">
       <BlobGradient />
       <Navbar />
       <PageWrapper className="pt-40">
@@ -48,14 +68,20 @@ const page = ({ params }: { params: { slug: string } }) => {
         />
 
         <div className="flex gap-4 items-center py-12">
-          <button className="py-2 px-4 bg-black hover:bg-black/80 flex gap-2 items-center rounded-lg h-10">
-            <p className="text-sm font-medium text-white">Visit website</p>
-            <Globe className="text-white" weight="fill" size={18} />
-          </button>
-          <button className="py-2 px-4 bg-black hover:bg-black/80 flex gap-2 items-center rounded-lg h-10">
-            <p className="text-sm font-medium text-white">Github</p>
-            <GithubLogo className="text-white" weight="fill" size={18} />
-          </button>
+          <Link href={project.website}>
+            <button className="py-2 px-4 bg-black hover:bg-black/80 flex gap-2 items-center rounded-lg h-10">
+              <p className="text-sm font-medium text-white">Visit website</p>
+              <Globe className="text-white" weight="fill" size={18} />
+            </button>
+          </Link>
+
+          <Link href={project.website}>
+            <button className="py-2 px-4 bg-black hover:bg-black/80 flex gap-2 items-center rounded-lg h-10">
+              <p className="text-sm font-medium text-white">Github</p>
+
+              <GithubLogo className="text-white" weight="fill" size={18} />
+            </button>
+          </Link>
         </div>
 
         <Swiper
@@ -79,7 +105,6 @@ const page = ({ params }: { params: { slug: string } }) => {
             prevEl: ".swiper-button-prev",
             nextEl: ".swiper-button-next",
           }}
-          // onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
           {project.showcase.map((image, index) => (
             <SwiperSlide key={index}>
@@ -96,56 +121,43 @@ const page = ({ params }: { params: { slug: string } }) => {
           ))}
         </Swiper>
 
-        {/* Table for Technologies */}
         <div className="max-w-xl mx-auto mt-12 mb-20">
           <h2 className="text-2xl font-bold mb-8 text-center">Tech stack</h2>
-          <section className="flex justify-around">
-            <div className="">
-              <div className="flex items-center space-x-3">
-                <IconDescription
-                  title="Frontend"
-                  titleSize="base"
-                  titleWeight="semibold"
-                  icon={<Airplay size={24} weight="fill" />}
-                />
-              </div>
-              <div className="mt-3 flex flex-col flex-wrap gap-3">
-                <Badge text="React.js" color="blue" />
-                <Badge text="Redux" color="blue" />
-                <Badge text="TypeScript" color="blue" />
-                <Badge text="Tailwind CSS" color="blue" />
-              </div>
-            </div>
-            <div className="">
-              <IconDescription
-                title="Backend"
-                titleSize="base"
-                titleWeight="semibold"
-                icon={<HardDrives size={24} weight="fill" />}
-              />
-              <div className="mt-3 flex flex-col flex-wrap gap-3">
-                <Badge text="Node.js" color="green" />
-                <Badge text="Express.js" color="green" />
-                <Badge text="TypeScript" color="green" />
-                <Badge text="Postgres" color="green" />
-                <Badge text="Prisma" color="green" />
-              </div>
-            </div>
-            <div className="">
-              <IconDescription
-                title="Deployment"
-                titleSize="base"
-                titleWeight="semibold"
-                icon={<Rocket size={24} weight="fill" />}
-              />
-              <div className="mt-3 flex flex-col flex-wrap gap-3">
-                <Badge text="Vercel" color="purple" />
-                <Badge text="GitHub Actions" color="purple" />
-              </div>
-            </div>
+          <section className="flex justify-around max-sm:flex-col max-sm:gap-8">
+            {project.techStack.frontend &&
+              renderTechStack(
+                "Frontend",
+                project.techStack.frontend,
+                <Airplay size={24} weight="fill" />,
+                "blue"
+              )}
+            {project.techStack.backend &&
+              renderTechStack(
+                "Backend",
+                project.techStack.backend,
+                <HardDrives size={24} weight="fill" />,
+                "green"
+              )}
+            {project.techStack.deployment &&
+              renderTechStack(
+                "Deployment",
+                project.techStack.deployment,
+                <Rocket size={24} weight="fill" />,
+                "purple"
+              )}
+            {project.techStack.testing &&
+              renderTechStack(
+                "Testing",
+                project.techStack.testing,
+                <Wrench size={24} weight="fill" />,
+                "purple"
+              )}
           </section>
         </div>
       </PageWrapper>
+      <div className="pt-48">
+        <BlobGradient position="bottom" />
+      </div>
     </div>
   );
 };

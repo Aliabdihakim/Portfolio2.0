@@ -4,7 +4,24 @@ import ProjectCard from "../components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export const projects = [
+type TechStack = {
+  frontend?: string[];
+  backend?: string[];
+  deployment?: string[];
+  testing?: string[];
+};
+
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  showcase: string[];
+  website: string;
+  github: string;
+  techStack: TechStack;
+};
+
+export const projects: Project[] = [
   {
     title: "Oumli",
     description:
@@ -16,32 +33,50 @@ export const projects = [
       "/oumli/oumli-3.png",
     ],
     website: "https://oumli.com/",
-    github: "https://oumli.com/",
+    github: "http://github.com/Aliabdihakim",
+    techStack: {
+      frontend: ["React.js", "TypeScript", "Redux", "Tailwind CSS"],
+      backend: ["Node.js", "Express.js", "Postgres", "Prisma"],
+      deployment: ["Vercel", "GitHub Actions"],
+      // testing: ["Jest", "React Testing Library"],
+    },
   },
   {
     title: "Ledarskapsjouren",
     description:
       "A digital coaching platform that offers on-demand coaching to managers in municipalities via video call",
-    image: "/icons/placeholder.png",
+    image: "/ledarskapsjouren/ledarskapsjouren-1.png",
     showcase: [
-      "/icons/ledarskapsjouren/ledarskapsjouren-1.png",
-      "/icons/ledarskapsjouren/ledarskapsjouren-2.png",
-      "/icons/ledarskapsjouren/ledarskapsjouren-3.png",
+      "/ledarskapsjouren/ledarskapsjouren-1.png",
+      "/ledarskapsjouren/ledarskapsjouren-2.png",
+      "/ledarskapsjouren/ledarskapsjouren-3.png",
     ],
-    website: "http://ledarskapsjouren.com/",
-    github: "http://ledarskapsjouren.com/",
+    website: "http://ledarskapsjouren.netlify.app/",
+    github: "http://github.com/Aliabdihakim",
+    techStack: {
+      frontend: ["React.js", "TypeScript", "Redux", "Tailwind CSS"],
+      backend: ["Node.js", "Express.js", "Postgres", "Prisma"],
+      deployment: ["Vercel", "GitHub Actions"],
+      testing: ["Jest", "Playwright"],
+    },
   },
   {
     title: "Portfolio",
     description: "My personal portfolio, sharing my knowledge and experiences",
-    image: "/icons/placeholder.png",
+    image: "/portfolio/portfolio-1.png",
     showcase: [
-      "/icons/ledarskapsjouren/ledarskapsjouren-1.png",
-      "/icons/ledarskapsjouren/ledarskapsjouren-2.png",
-      "/icons/ledarskapsjouren/ledarskapsjouren-3.png",
+      "/portfolio/portfolio-1.png",
+      "/portfolio/portfolio-2.png",
+      "/portfolio/portfolio-3.png",
     ],
-    website: "http://ledarskapsjouren.com/",
-    github: "http://ledarskapsjouren.com/",
+    website: "http://aliabdihakim.dev/",
+    github: "http://github.com/Aliabdihakim",
+    techStack: {
+      frontend: ["Next.js", "TypeScript", "Tailwind CSS"],
+      backend: ["Postgres", "Supabase", "Prisma"],
+      deployment: ["Vercel", "GitHub Actions"],
+      testing: ["Jest"],
+    },
   },
 ];
 

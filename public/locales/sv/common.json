@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "home": "Hem",
+    "projects": "Projekt",
+    "about": "Om"
+  },
+  "theme": {
+    "light": "Ljus",
+    "dark": "Mörk"
+  },
+  "language": {
+    "english": "Engelska",
+    "swedish": "Svenska"
+  }
+}
