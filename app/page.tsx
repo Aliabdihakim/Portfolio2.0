@@ -10,11 +10,16 @@ import GetInTouch from "./sections/GetInTouch";
 
 const Home = () => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
   const timelineRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
 
   const handleHashChange = () => {
     const hash = window.location.hash;
+
+    if (hash === "#projects" && aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    }
 
     if (hash === "#about" && aboutRef.current) {
       aboutRef.current.scrollIntoView({ behavior: "smooth" });
@@ -43,11 +48,14 @@ const Home = () => {
       <BlobGradient />
       <Navbar
         aboutRef={aboutRef}
+        projectsRef={projectsRef}
         timelineRef={timelineRef}
         contactRef={contactRef}
       />
       <Hero />
-      <Projects />
+      <div ref={projectsRef}>
+        <Projects />
+      </div>
       <div ref={aboutRef}>
         <About />
       </div>

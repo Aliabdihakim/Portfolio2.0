@@ -14,7 +14,7 @@ function PageWrapper({
 }: PageWrapperProps) {
   return (
     <div
-      className={clsx("px-3 py-4 max-w-5xl mx-auto", className)}
+      className={clsx("px-3 py-4 max-w-7xl mx-auto", className)}
       data-testid={testId}
     >
       {children}

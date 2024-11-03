@@ -14,10 +14,12 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 const Navbar = ({
+  projectsRef,
   aboutRef,
   timelineRef,
   contactRef,
 }: {
+  projectsRef?: React.RefObject<HTMLDivElement>;
   aboutRef?: React.RefObject<HTMLDivElement>;
   timelineRef?: React.RefObject<HTMLDivElement>;
   contactRef?: React.RefObject<HTMLDivElement>;
@@ -54,56 +56,33 @@ const Navbar = ({
       </Link>
       <div className="flex gap-0 items-center">
         <div className="flex gap-8 items-center border-r-2 pr-6 dark:border-gray-700">
-          <Link href="/projects">
-            <button className="text-sm font-semibold dark:text-gray-400">
-              Projects
-            </button>
-          </Link>
+          <button
+            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+            onClick={() => scrollToSection(projectsRef)}
+          >
+            Projects
+          </button>
 
-          {isHomePage ? (
-            <button
-              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-              onClick={() => scrollToSection(aboutRef)}
-            >
-              About
-            </button>
-          ) : (
-            <Link href="/#about">
-              <button className="text-sm font-semibold dark:text-gray-400 max-sm:hidden">
-                About
-              </button>
-            </Link>
-          )}
+          <button
+            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+            onClick={() => scrollToSection(aboutRef)}
+          >
+            About
+          </button>
 
-          {isHomePage ? (
-            <button
-              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-              onClick={() => scrollToSection(timelineRef)}
-            >
-              Experiences
-            </button>
-          ) : (
-            <Link href="/#timeline">
-              <button className="text-sm font-semibold dark:text-gray-400 max-sm:hidden">
-                Experiences
-              </button>
-            </Link>
-          )}
+          <button
+            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+            onClick={() => scrollToSection(timelineRef)}
+          >
+            Experiences
+          </button>
 
-          {isHomePage ? (
-            <button
-              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-              onClick={() => scrollToSection(contactRef)}
-            >
-              Contact
-            </button>
-          ) : (
-            <Link href="/#contact">
-              <button className="text-sm font-semibold dark:text-gray-400 max-sm:hidden">
-                Contact
-              </button>
-            </Link>
-          )}
+          <button
+            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+            onClick={() => scrollToSection(contactRef)}
+          >
+            Contact
+          </button>
         </div>
 
         <DropdownMenu>

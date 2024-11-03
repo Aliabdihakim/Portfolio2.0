@@ -24,10 +24,9 @@ export const metadata: Metadata = {
   description: "Ali Abdihakim developer portfolio!",
 };
 
-// Inline script to immediately set the theme before page hydration
 const setInitialTheme = `
   (function() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.classList.add(savedTheme);
   })();
 `;

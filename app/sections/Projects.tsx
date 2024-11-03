@@ -3,6 +3,7 @@ import { PageWrapper } from "../components/PageWrapper";
 import ProjectCard from "../components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 type TechStack = {
   frontend?: string[];
@@ -19,6 +20,7 @@ type Project = {
   website: string;
   github: string;
   techStack: TechStack;
+  type: "client" | "personal";
 };
 
 export const projects: Project[] = [
@@ -40,6 +42,7 @@ export const projects: Project[] = [
       deployment: ["Vercel", "GitHub Actions"],
       // testing: ["Jest", "React Testing Library"],
     },
+    type: "client",
   },
   {
     title: "Ledarskapsjouren",
@@ -59,6 +62,7 @@ export const projects: Project[] = [
       deployment: ["Vercel", "GitHub Actions"],
       testing: ["Jest", "Playwright"],
     },
+    type: "client",
   },
   {
     title: "Portfolio",
@@ -77,6 +81,7 @@ export const projects: Project[] = [
       deployment: ["Vercel", "GitHub Actions"],
       testing: ["Jest"],
     },
+    type: "personal",
   },
 ];
 
@@ -84,6 +89,7 @@ const Projects = () => {
   return (
     <PageWrapper className="my-24">
       <h1 className="text-4xl mb-12 flex justify-center">Selected projects</h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.slice(0, 2).map((project) => (
           <ProjectCard
@@ -92,6 +98,7 @@ const Projects = () => {
             description={project.description}
             image={project.image}
             href={`/projects/${project.title.toLocaleLowerCase()}`}
+            type={project.type}
           />
         ))}
       </div>
