@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { Lightbulb, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import CardContainer from "./CardContainer";
 import { Description } from "./Description";

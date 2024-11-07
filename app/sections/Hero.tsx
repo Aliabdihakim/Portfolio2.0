@@ -1,19 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { PageWrapper } from "../components/PageWrapper";
 import Image from "next/image";
-import clsx from "clsx";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  const variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -50 },
-  };
-
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
     visible: {

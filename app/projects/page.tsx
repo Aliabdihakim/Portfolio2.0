@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import PageWrapperWithHeader from "../components/PageWrapperWithHeader";
-import { projects } from "../sections/Projects";
 import ProjectCard from "../components/ProjectCard";
 import BlobGradient from "../components/BlobGradient";
 import { motion } from "framer-motion";
+import { projects } from "../sections/Projects/projects.utils";
 
 const page = () => {
   const projectVariants = {

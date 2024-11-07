@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useState } from "react";
 import Image from "next/image";
 import { Moon, Sun } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
@@ -19,22 +19,15 @@ const Navbar = ({
   timelineRef,
   contactRef,
 }: {
-  projectsRef?: React.RefObject<HTMLDivElement>;
-  aboutRef?: React.RefObject<HTMLDivElement>;
-  timelineRef?: React.RefObject<HTMLDivElement>;
-  contactRef?: React.RefObject<HTMLDivElement>;
+  projectsRef?: RefObject<HTMLDivElement>;
+  aboutRef?: RefObject<HTMLDivElement>;
+  timelineRef?: RefObject<HTMLDivElement>;
+  contactRef?: RefObject<HTMLDivElement>;
 }) => {
   const { t } = useTranslation("common");
-  const [theme, setTheme] = React.useState<"light" | "dark">("light");
-  const [isHomePage, setIsHomePage] = useState<boolean>(true);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsHomePage(window.location.pathname === "/");
-    }
-  }, []);
-
-  const scrollToSection = (sectionRef?: React.RefObject<HTMLDivElement>) => {
+  const scrollToSection = (sectionRef?: RefObject<HTMLDivElement>) => {
     if (sectionRef?.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
     } else {

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import Hero from "./sections/Hero";
 import Navbar from "./components/Navbar";
-import Projects from "./sections/Projects";
+import Projects from "./sections/Projects/Projects";
 import About from "./sections/About";
 import Timeline from "./sections/Timeline";
 import BlobGradient from "./components/BlobGradient";
