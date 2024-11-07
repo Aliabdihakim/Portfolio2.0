@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import { PageWrapper } from "@/app/components/PageWrapper";
@@ -14,12 +15,12 @@ import BlobGradient from "@/app/components/BlobGradient";
 import Link from "next/link";
 import { projects } from "@/app/sections/Projects/projects.utils";
 
-const page = ({ params }: { params: { slug: string } }) => {
+const Page = ({ params }: { params: { slug: string } }) => {
   const project = projects.find(
     (proj) => proj.title.toLowerCase() === params.slug.toLowerCase()
   );
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   if (!project) {
     return <div>Project not found</div>;
@@ -133,4 +134,4 @@ const page = ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default page;
+export default Page;
