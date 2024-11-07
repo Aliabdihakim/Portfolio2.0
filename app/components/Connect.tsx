@@ -12,7 +12,7 @@ const Connect = () => {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("aliabdihakim@example.com");
+    navigator.clipboard.writeText("ali.abdihakim.ali1@gmail.com");
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };

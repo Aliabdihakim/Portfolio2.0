@@ -8,8 +8,7 @@ export type TechStack = {
 export type DetailedDescription = {
   title?: string;
   text: string;
-  image: string;
-  darkImage?: string;
+  image?: string;
 };
 
 export type Project = {
@@ -22,7 +21,6 @@ export type Project = {
   techStack: TechStack;
   type: "client" | "personal";
   overview: string;
-  role: string;
   detailedDescription: DetailedDescription[];
 };
 
@@ -32,11 +30,7 @@ export const projects: Project[] = [
     description:
       "Ecommerce site that delivers nutritious meals to support postpartum healing for new moms",
     image: "/oumli/oumli-1.png",
-    showcase: [
-      "/oumli/oumli-1.png",
-      "/oumli/oumli-2.png",
-      "/oumli/oumli-3.png",
-    ],
+    showcase: ["/oumli/oumli-1.png", "/oumli/oumli-2.png"],
     website: "https://oumli.com/",
     github: "http://github.com/Aliabdihakim",
     techStack: {
@@ -46,24 +40,20 @@ export const projects: Project[] = [
     },
     type: "client",
     overview:
-      "Oumli is a platform designed to offer healthy meals tailored for new moms to aid their postpartum recovery.",
-    role: "Led the development of the full-stack application.",
+      "Oumli is a platform created in collaboration with the Järva district municipality to provide nutritious, postpartum-focused meals for new moms, supporting their recovery and wellness. I led the development of the full-stack application, ensuring a seamless user experience from frontend to backend.",
     detailedDescription: [
       {
         title: "Development process",
         text: "To make Oumli easy to use and engaging, I chose React with TypeScript for a reliable, type-safe frontend. React Query was a game-changer for handling API requests, giving smooth data fetching, caching, and error handling. I used Zod to keep data validation and parsing consistent, making sure interactions with the backend stayed solid. Tailwind CSS brought the UI to life, making it responsive and clean on any device. The frontend was deployed to AWS S3 buckets with Route 53 for DNS management, CloudFront for chaching content delivery, and ACM for SSL certificates to ensure secure access. I used Github actions to autodeploy the frontend for this CI/CD setup.",
         image: "/oumli/oumli-frontend-architecture.png",
-        darkImage: "/oumli/oumli-frontend-architecture-dark.png",
       },
       {
-        title: "",
-        text: "To make Oumli easy to use and engaging, we chose React with TypeScript...",
-        image: "/oumli/fe.png",
+        text: "Oumli’s backend was built to be fast and dependable, powered by TypeScript, Node.js, and Express.js for type-safe, scalable server-side development Prisma ORM made database management with PostgreSQL simple and type-safe We stuck to RESTful API principles to keep everything straightforward and easy to scale The backend was deployed on AWS EC2, ensuring a robust and flexible server environment that could handle varying loads GitHub Actions facilitated continuous integration and deployment, ensuring updates were seamlessly implemented",
+        image: "/oumli/oumli-full-architecture.png",
       },
       {
-        title: "Backend",
-        text: "The backend utilized Node.js and Express.js to create a scalable server...",
-        image: "/oumli/be.png",
+        title: "Final notes",
+        text: "Developing Oumli was more than just a technical endeavor—it was a meaningful project centered on community support and wellness. Through close collaboration with the Järva district municipality, we brought a platform to life that not only delivers nutritious meals but also reflects a commitment to supporting new moms in a critical phase of their journey.",
       },
     ],
   },

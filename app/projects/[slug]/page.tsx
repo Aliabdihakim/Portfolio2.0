@@ -1,15 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import { PageWrapper } from "@/app/components/PageWrapper";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import styles from "./project.module.css";
-import { Globe, GithubLogo } from "@phosphor-icons/react/dist/ssr";
+import {
+  Globe,
+  GithubLogo,
+  CaretLeft,
+  CaretRight,
+} from "@phosphor-icons/react/dist/ssr";
 import { Description } from "@/app/components/Description";
 import BlobGradient from "@/app/components/BlobGradient";
 import Link from "next/link";
@@ -20,9 +19,23 @@ const page = ({ params }: { params: { slug: string } }) => {
     (proj) => proj.title.toLowerCase() === params.slug.toLowerCase()
   );
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   if (!project) {
     return <div>Project not found</div>;
   }
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === project.showcase.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? project.showcase.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
     <div className="relative">
@@ -54,65 +67,49 @@ const page = ({ params }: { params: { slug: string } }) => {
           </Link>
         </div>
 
-        <section className="pt-8 pb-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 pb-8">
-            <Description
-              title={<h1 className="text-2xl">Project Overview</h1>}
-              description={<p className="text-base">{project.overview}</p>}
-              gap={3}
+        <div className="relative flex items-center justify-center">
+          <button onClick={handlePrevImage} className="absolute left-0 p-2">
+            <CaretLeft
+              size={32}
+              className="text-gray-500 hover:text-gray-700"
             />
-            <Description
-              title={<h1 className="text-2xl">My Role</h1>}
-              description={<p className="text-base">{project.role}</p>}
-              gap={4}
+          </button>
+
+          <div className="flex">
+            <Image
+              src={project.showcase[currentImageIndex]}
+              alt={`${project.title} showcase image ${currentImageIndex + 1}`}
+              width={700}
+              height={400}
+              className="rounded-xl p-4"
             />
           </div>
-        </section>
 
-        <Swiper
-          modules={[Pagination, Navigation]}
-          spaceBetween={30}
-          slidesPerView={1.2}
-          centeredSlides={true}
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => {
-              return `
-                <span class="${className} ${styles.customBullet} ${
-                  className.includes("swiper-pagination-bullet-active")
-                    ? styles.customBulletActive
-                    : ""
-                }"></span>
-              `;
-            },
-          }}
-          navigation={{
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
-          }}
-        >
-          {project.showcase.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative w-full h-[40vh]">
-                <Image
-                  src={image}
-                  alt={`${project.title} showcase image ${index + 1}`}
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-xl bg-gray-800"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <button onClick={handleNextImage} className="absolute right-0 p-2">
+            <CaretRight
+              size={32}
+              className="text-gray-500 hover:text-gray-700"
+            />
+          </button>
+        </div>
 
         <section className="pt-12 md:px-32 lg:px-48 ">
+          <div className="">
+            <Description
+              title={<h1 className="text-3xl mb-4">Project Overview</h1>}
+              description={
+                <p className="text-base mb-6 leading-8">{project.overview}</p>
+              }
+              gap={3}
+            />
+          </div>
+
           {project.detailedDescription?.map((detail, index) => (
-            <div key={index} className="py-8">
+            <div key={index} className="">
               {detail.title && (
                 <h2 className="text-3xl font-semibold mb-4">{detail.title}</h2>
               )}
-              <p className="text-base mb-4 leading-8 ">{detail.text}</p>
+              <p className="text-base pb-12 leading-8 ">{detail.text}</p>
               {detail.image && (
                 <div className="w-full h-[500px] relative mb-8">
                   <Image
@@ -120,7 +117,7 @@ const page = ({ params }: { params: { slug: string } }) => {
                     alt={`${project.title} - ${detail.title}`}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-lg"
+                    className="rounded-lg bg-white p-4"
                   />
                 </div>
               )}

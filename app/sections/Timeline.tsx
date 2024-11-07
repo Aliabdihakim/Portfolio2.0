@@ -27,20 +27,20 @@ const Timeline = () => {
     {
       id: 1,
       company: "Chromaway",
-      title: "Senior Frontend Developer",
+      title: "Senior Full stack Developer",
       date: "2023-2024",
       icon: "/icons/ch.png",
       description:
-        "Led frontend architecture and development of blockchain-based projects, focusing on performance optimization and user experience.",
+        "I helped build Chromaway’s web ecosystem from the ground up, creating a web IDE, course platform, and a blockchain-based share ledger using React.js and TypeScript in a monorepo setup. I designed the course platform’s UI with Tailwind UI to make accessing materials and tutorials simple and engaging. For the web IDE, I wanted users to have a space to dive right into app development on Chromia, so I integrated it directly into the platform. I also crafted a share registry to track transfers and dividends using React and Blockchain APIs, ensuring a secure, transparent experience. I added Sentry for real-time error tracking and automated deployments with GitHub Actions to keep everything running smoothly.",
     },
     {
       id: 2,
       company: "Kvanta",
-      title: "Frontend Developer",
+      title: "Fullstack Developer",
       date: "2021-2023",
       icon: "/icons/dl.svg",
       description:
-        "Managed the frontend team and led the development of dental management software applications used by thousands of clinics.",
+        "As a Frontend Developer at Kvanta, I focused on creating a smooth and user-friendly login experience, building the interface in React.js with TypeScript, React Hook Form, and ContextAPI for easy data handling and validation. I implemented the logic for share registry events—like dividends, splits, and new issues—by integrating Blockchain APIs, giving users a clear view of transactions. I added BankID authentication to ensure a seamless, secure login experience. Working closely with backend developers, I used TanStack Query to keep API calls in sync with the backend. I also tackled production bugs head-on, using CI/CD pipelines for quick updates.",
     },
     {
       id: 3,
@@ -49,17 +49,17 @@ const Timeline = () => {
       date: "2020-2021",
       icon: "/icons/ft.png",
       description:
-        "Developed reusable frontend components and optimized energy management solutions for large-scale applications.",
+        "I led the migration of Fortum’s web app from Nunjucks to React.js with TypeScript, creating a smoother user experience with improved performance and maintainability. I developed and refined the login feature, integrating BankID for secure authentication, and used Material UI to design user-friendly dashboards displaying electricity usage stats, costs, and billing history. I also integrated Swish for seamless bill payments. Throughout, I worked closely with cross-functional teams to keep frontend and backend in sync.",
     },
   ];
 
   const education: Experience = {
-    institution: "Royal Institute of Technology",
+    institution: "Royal Institute of Technology (KTH)",
     degree: "Master's Degree in Computer Science (Civ. ing Teknisk Fysik)",
     date: "2015-2020",
     icon: "/icons/kth.png",
     description:
-      "Completed a master's degree with a focus on software engineering, artificial intelligence, and system architecture.",
+      "I completed a Master of Science in Engineering Physics with a specialization in Computer Science at KTH, where I built a strong foundation in both advanced mathematics and software development. My studies gave me a deep understanding of problem-solving, algorithms, and data structures, which have been invaluable in my work as a developer. Through hands-on projects and coursework, I honed my skills in areas like data analysis, programming, and systems design, setting me up well for a career in tech.",
   };
 
   const colors = ["pink", "purple", "green"];

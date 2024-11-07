@@ -12,6 +12,7 @@ import {
 import IconDescription from "./IconDescription";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import { useParams } from "next/navigation";
 
 const Navbar = ({
   projectsRef,
@@ -26,6 +27,10 @@ const Navbar = ({
 }) => {
   const { t } = useTranslation("common");
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const params = useParams(); // Get current route parameters
+  const isHomePage = !params?.slug; //
+
+  console.log({ params, isHomePage });
 
   const scrollToSection = (sectionRef?: RefObject<HTMLDivElement>) => {
     if (sectionRef?.current) {
@@ -48,35 +53,37 @@ const Navbar = ({
         <Image alt="navbar-logo" src="/icons/logo.png" width={40} height={40} />
       </Link>
       <div className="flex gap-0 items-center">
-        <div className="flex gap-8 items-center border-r-2 pr-6 dark:border-gray-700">
-          <button
-            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-            onClick={() => scrollToSection(projectsRef)}
-          >
-            Projects
-          </button>
+        {isHomePage && (
+          <div className="flex gap-8 items-center border-r-2 pr-6 dark:border-gray-700">
+            <button
+              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+              onClick={() => scrollToSection(projectsRef)}
+            >
+              Projects
+            </button>
 
-          <button
-            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-            onClick={() => scrollToSection(aboutRef)}
-          >
-            About
-          </button>
+            <button
+              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+              onClick={() => scrollToSection(aboutRef)}
+            >
+              About
+            </button>
 
-          <button
-            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-            onClick={() => scrollToSection(timelineRef)}
-          >
-            Experiences
-          </button>
+            <button
+              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+              onClick={() => scrollToSection(timelineRef)}
+            >
+              Experiences
+            </button>
 
-          <button
-            className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
-            onClick={() => scrollToSection(contactRef)}
-          >
-            Contact
-          </button>
-        </div>
+            <button
+              className="text-sm font-semibold dark:text-gray-400 max-sm:hidden"
+              onClick={() => scrollToSection(contactRef)}
+            >
+              Contact
+            </button>
+          </div>
+        )}
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -88,7 +95,7 @@ const Navbar = ({
               )}
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="space-y-1">
             <DropdownMenuItem onClick={() => toggleTheme("light")}>
               <IconDescription
                 title={t("Light")}

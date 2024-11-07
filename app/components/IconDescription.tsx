@@ -29,7 +29,9 @@ const IconDescription: React.FC<IconDescriptionProps> = ({
   className = "",
 }) => {
   return (
-    <div className={clsx("flex items-center", `gap-${iconGap}`, className)}>
+    <div
+      className={clsx("flex items-center gap-2", `gap-${iconGap}`, className)}
+    >
       <div>{icon}</div>
       <Description
         title={title}

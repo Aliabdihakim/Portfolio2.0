@@ -45,11 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </p>
               </div>
 
-              <ArrowUpRight
-                weight="bold"
-                size={18}
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
+              <ArrowUpRight weight="bold" size={18} />
             </div>
           }
           description={

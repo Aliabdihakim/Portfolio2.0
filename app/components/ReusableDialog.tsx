@@ -23,10 +23,12 @@ const ReusableDialog: React.FC<ReusableDialogProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl h-[60vh]">
+      <DialogContent className="min-h-[300px] max-w-2xl md:px-12">
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
+          <DialogTitle className="text-3xl pb-8">{title}</DialogTitle>
+          <DialogDescription className="text-base leading-8">
+            {description}
+          </DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>
