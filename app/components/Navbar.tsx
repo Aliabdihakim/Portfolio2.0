@@ -30,8 +30,6 @@ const Navbar = ({
   const params = useParams(); // Get current route parameters
   const isHomePage = !params?.slug; //
 
-  console.log({ params, isHomePage });
-
   const scrollToSection = (sectionRef?: RefObject<HTMLDivElement>) => {
     if (sectionRef?.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
