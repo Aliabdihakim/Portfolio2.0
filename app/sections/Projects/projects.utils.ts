@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "Ecommerce site that delivers nutritious meals to support postpartum healing for new moms",
     image: "/oumli/oumli-1.png",
     showcase: ["/oumli/oumli-1.png", "/oumli/oumli-2.png"],
-    website: "https://oumli.com/",
+    website: "http://oumli.com.s3-website-us-east-1.amazonaws.com/",
     github: "http://github.com/Aliabdihakim",
     techStack: {
       frontend: ["React.js", "TypeScript", "Redux", "Tailwind CSS"],
