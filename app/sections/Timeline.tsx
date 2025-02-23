@@ -31,7 +31,7 @@ const Timeline = () => {
       date: "2023-2025",
       icon: "/icons/as.png",
       description:
-        "At Aspia, I led the integration of Accountor into MyBusiness, Aspia’s platform for bookkeeping, invoicing, and time reporting. I developed a microfrontend architecture to ensure a seamless transition while maintaining Aspia’s branding. To connect both systems, I built MyOffice, a middleware platform, and implemented Redux Toolkit and RTK Query for state management. I also developed a feature flag system for controlled rollouts, using Hotjar and Sentry to gather user insights and improve features. To ensure stability, I wrote unit, integration, and end-to-end tests with Vitest, React Testing Library, MSW, and Playwright. I also maintained UI consistency with Storybook.",
+        "At Aspia, I led the integration of Accountor into MyBusiness, Aspia’s platform for bookkeeping, invoicing, and time reporting. I developed a microfrontend architecture to ensure a seamless transition while maintaining Aspia’s branding. To connect both systems, I built MyOffice, a middleware platform, and implemented Redux Toolkit and RTK Query for state management. I also developed a feature flag system for controlled rollouts, using Hotjar and Sentry to gather user insights and improve features. To ensure stability, I wrote unit, integration, and end-to-end tests with Jest, React Testing Library, MSW, and Playwright. I also maintained UI consistency with Storybook.",
     },
     {
       id: 2,
